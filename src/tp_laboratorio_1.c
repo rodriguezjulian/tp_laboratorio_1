@@ -24,7 +24,7 @@ int main(void)
 	//float precioAerolineasDebito;
 
 		do{
-				//printf("aca 1");
+				printf("aca 1");
 				//retornoOpciones=
 			getInt("MARQUE 1, para ingresar kilometros \n"
 						"MARQUE 2, para ingresar precio de los vuelos \n"
