@@ -158,18 +158,19 @@ int getFloatSinMax(char mensaje[], int reintentos, int min, char mensajeError[],
 
 
 
-/*float CalcularPorcentajes(char mensaje [],float precio,float porcentaje,int cien, float *pPrecioFinal, int reintentos)
+float CalcularPorcentajes(float precio,float porcentaje,int cien, float *pPrecioFinal, int reintentos)
 	{
 	float precioAuxiliar;
+	//float precioMas;
 	int retorno;
 	retorno=-1;
 		do
 		{
 			reintentos--;
 
-			if(mensaje!= NULL && precio>0 && porcentaje>0 && cien==100)
+			if(precio>0 && cien==100 && reintentos>0)
 			{
-				precioAuxiliar=porcentaje*precio/cien;
+				precioAuxiliar=(porcentaje*precio/cien)+precio;
 				retorno=0;
 			}
 
@@ -178,7 +179,18 @@ int getFloatSinMax(char mensaje[], int reintentos, int min, char mensajeError[],
 		*pPrecioFinal=precioAuxiliar;
 		return retorno;
 	}
-*/
+/*char mostrarFloat(char mensaje[],float num1)
+	{
+		return printf("%.2f", num1);
+
+	}*/
+//DECLARAR FUNCION
+void imprimir(char mensaje [], float num1)
+	{
+		printf("%s",num1);
+	}
+
+
 
 
 

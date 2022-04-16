@@ -24,9 +24,10 @@ float dividir (float, float);
 int deseaContinuar (int);
 int getInt (char mensaje [], int reintentos,int min, int max, char mensajeError[], int *pnumeroIngresado);
 int getFloat(char mensaje[], int reintentos, int minimo, int maximo, char mensajeError[], float *pNumeroingresado);
-//float CalcularConPorcentajes(char mensaje [],float precio,float porcentaje,int cien, float pPrecioFinal, int reintentos);
+float CalcularPorcentajes(float precio,float porcentaje,int cien, float *pPrecioFinal, int reintentos);
 int getFloatSinMax(char mensaje[], int reintentos, int min, char mensajeError[], float *pNumeroingresado);
-
+char mostrarFloat(char mensaje[],float num1);
+void imprimir(char mensaje [], float num1);
 
 
 #endif /* LIBRERIADEOPERACIONES_H_ */

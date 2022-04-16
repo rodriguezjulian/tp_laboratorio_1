@@ -21,6 +21,10 @@ int main(void)
 	//int retornoOpciones;
 	float precioAerolineas;
 	float precioLatam;
+	float precioAerolineasdDebito;
+	float precioLatamDebito;
+	float precioAerolineasdCredito;
+	float precioLatamCredito;
 	//float precioAerolineasDebito;
 
 		do{
@@ -52,9 +56,19 @@ int main(void)
 				 getFloatSinMax("Ingrese precio del vuelo vijando con LATAM \n",3,1,"ERROR, Ingrese un precio valido\n",&precioLatam);
 			 break;
 			 case 3:
+				// float CalcularPorcentajes(float precio,float porcentaje,int cien, float *pPrecioFinal, int reintentos);
+				CalcularPorcentajes(precioAerolineas,-10,100,&precioAerolineasdDebito,3);
+				CalcularPorcentajes(precioLatam,-10,100,&precioLatamDebito,3);
+				CalcularPorcentajes(precioAerolineas,25,100,&precioAerolineasdCredito,3);
+				CalcularPorcentajes(precioLatam,25,100,&precioLatamCredito,3);
 
+				printf("precioLatamCredito %.2f\n", precioLatamCredito);
+				printf("precioAerolineasdCredito %.2f\n", precioAerolineasdCredito);
+				printf("precioLatamDebito %.2f\n", precioLatamDebito);
+				printf("precioAerolineasdDebito %.2f\n", precioAerolineasdDebito);
 			 break;
 			 case 4:
+				 //FUNCION PARA MOSTRAR INFORMACION
 			 break;
 			 case 5:
 			 break;
@@ -62,8 +76,8 @@ int main(void)
 			 break;
 			}
 
-			printf("Para continuar operando presione el numero 8\n ");
-			scanf("%d \n ", &respuesta);
+			printf("Para continuar operando presione el numero 8 \n ");
+			scanf("%d",&respuesta);
 
 		}while(respuesta==8);
 
