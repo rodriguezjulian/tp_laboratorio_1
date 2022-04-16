@@ -11,6 +11,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "LibreriaDeOperaciones.h"
+#include "FuncionesParaTP1-LAB1.h"
 
 
 int main(void)
@@ -19,7 +20,6 @@ int main(void)
 	int opcion;
 	int respuesta;
 	int kilometros;
-	//int retornoOpciones;
 	float precioAerolineas;
 	float precioLatam;
 	float precioAerolineasdDebito;
