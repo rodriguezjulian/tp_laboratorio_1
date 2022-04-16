@@ -24,7 +24,6 @@ float Dividir (float, float);
 //GENERICAS
 int GetInt (char mensaje [], int reintentos,int min, int max, char mensajeError[], int *pnumeroIngresado);
 int GetFloat(char mensaje[], int reintentos, int minimo, int maximo, char mensajeError[], float *pNumeroingresado);
-int CalcularPorcentaje(float precio,float porcentaje, float *pPrecioFinal);
 int GetFloatSinMax(char mensaje[], int reintentos, int min, char mensajeError[], float *pNumeroingresado);
 void Imprimir(char mensaje[]);
 

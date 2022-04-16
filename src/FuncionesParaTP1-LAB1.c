@@ -7,6 +7,28 @@
 
 
 #include "FuncionesParaTP1-LAB1.h"
+
+/// @fn int CalcularCostos(int, float, float, float, float*, float*, float*, float*, float*, float*, float*, float*, float*, int*)
+/// @brief
+///TOMANDO PARAMETROS OBTENIDOS CON ANTERIORIDAD (kilometros, valor BTC, precio Aerolinea y Latam), REALIZA LOS CALCULOS NECESARIOS Y LOS ESCRIBE EN LA
+/// VARIABLES A TRAVEZ DEL USO DE PUNTEROS.
+/// @pre
+/// @post
+/// @param kilometros
+/// @param valorBitcoin
+/// @param precioAerolineas
+/// @param precioLatam
+/// @param precioAerolineasdDebito
+/// @param precioLatamDebito
+/// @param precioAerolineasdCredito
+/// @param precioLatamCredito
+/// @param precioAerolineasBitcoin
+/// @param precioLatamBitcoin
+/// @param precioPorKmAerolineas
+/// @param precioPorKmLatam
+/// @param diferenciaPrecios
+/// @param bandera
+/// @return (SALIO BIEN=1 /SINO 0)
 int CalcularCostos(int kilometros, float valorBitcoin, float precioAerolineas,float precioLatam, float *precioAerolineasdDebito,float *precioLatamDebito,float *precioAerolineasdCredito, float *precioLatamCredito,float *precioAerolineasBitcoin,float *precioLatamBitcoin,float *precioPorKmAerolineas,float *precioPorKmLatam,float *diferenciaPrecios, int *bandera)
 	{
 		int rtn;
@@ -40,7 +62,25 @@ int CalcularCostos(int kilometros, float valorBitcoin, float precioAerolineas,fl
 		}
 		return rtn;
 	}
-
+/// @fn void InformarResultados(int, float, float, float, float, float, float, float, float, float, float, float, int)
+/// @brief
+///SE MUESTRAN RESULTADOS SIEMPRE Y CUANDO EL FLAG ESTE EN 1, COSA QUE SUCEDE UNA VEZ QUE SE EJECUTA CORRECTAMENTE LA FUNCION CalcularCostos, DE LO CONTRARIO
+/// NO SE INFORMARA NADA YA QUE PRIMERO SE DEBE OPERAR ESA OPCION
+/// @pre
+/// @post
+/// @param kilometros
+/// @param precioAerolineas
+/// @param precioLatam
+/// @param precioAerolineasdDebito
+/// @param precioLatamDebito
+/// @param precioAerolineasdCredito
+/// @param precioLatamCredito
+/// @param precioAerolineasBitcoin
+/// @param precioLatamBitcoin
+/// @param precioPorKmAerolineas
+/// @param precioPorKmLatam
+/// @param diferenciaPrecios
+/// @param flag
 void InformarResultados(int kilometros, float precioAerolineas,float precioLatam, float precioAerolineasdDebito,float precioLatamDebito,float precioAerolineasdCredito, float precioLatamCredito,float precioAerolineasBitcoin,float precioLatamBitcoin,float precioPorKmAerolineas,float precioPorKmLatam,float diferenciaPrecios, int flag)
 	{
 		if(flag==1)
@@ -66,4 +106,20 @@ void InformarResultados(int kilometros, float precioAerolineas,float precioLatam
 		{
 			Imprimir("ERROR, operar opcion 3 previamente \n");
 		}
+	}
+int CalcularPorcentaje(float precio,float porcentaje, float *pPrecioFinal)
+	{
+	float precioAuxiliar;
+	//float precioMas;
+	int retorno;
+	retorno=-1;
+
+			if(precio>0)
+			{
+				precioAuxiliar=(porcentaje*precio/100)+precio;
+				retorno=0;
+			}
+
+		*pPrecioFinal=precioAuxiliar;
+		return retorno;
 	}

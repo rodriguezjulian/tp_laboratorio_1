@@ -16,10 +16,11 @@
 
 int main(void)
 {
+
 	setbuf(stdout,NULL);
 	int opcion;
 	int respuesta;
-	int kilometros;
+	float kilometros;
 	float precioAerolineas;
 	float precioLatam;
 	float precioAerolineasdDebito;
@@ -64,7 +65,7 @@ int main(void)
 			{
 			 case 1:
 
-				 	GetInt("Ingrese kilometros a recorrer \n",3,1,15000,"ERROR, Ingrese un numero valido\n", &kilometros);
+				 GetFloat("Ingrese kilometros a recorrer \n",3,1,15000,"ERROR, Ingrese un numero valido\n", &kilometros);
 				 	flag=0;//SI EL USUARIO QUISIESE REINGRESAR
 			 break;
 			 case 2:

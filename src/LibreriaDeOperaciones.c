@@ -54,7 +54,7 @@ float SumaryPromediar  (float num1, float num2, float promedio)
 {
 		int rtn;
 		rtn=(num1+num2)/promedio;
-		printf("%f");
+		printf("%f",promedio);
 		return rtn;
 }
 int GetInt(char mensaje[], int reintentos, int minimo, int maximo, char mensajeError[], int *pNumeroingresado)
@@ -148,28 +148,6 @@ int GetFloatSinMax(char mensaje[], int reintentos, int min, char mensajeError[],
 	}
 	return rtn;
 }
-
-
-
-int CalcularPorcentaje(float precio,float porcentaje, float *pPrecioFinal)
-	{
-	float precioAuxiliar;
-	//float precioMas;
-	int retorno;
-	retorno=-1;
-
-			if(precio>0)
-			{
-				precioAuxiliar=(porcentaje*precio/100)+precio;
-				retorno=0;
-			}
-
-		*pPrecioFinal=precioAuxiliar;
-		return retorno;
-	}
-
-
-
 
 void Imprimir(char mensaje[])
 	{
