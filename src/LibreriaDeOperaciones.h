@@ -17,17 +17,18 @@
 #include <stdlib.h>
 
 //PROTOTIPOS:
-float sumar (float, float);//PROTOTIPO DE FUNCION
-float restar (float, float);
-float multiplicar (float, float);
-float dividir (float, float);
-int deseaContinuar (int);
-int getInt (char mensaje [], int reintentos,int min, int max, char mensajeError[], int *pnumeroIngresado);
-int getFloat(char mensaje[], int reintentos, int minimo, int maximo, char mensajeError[], float *pNumeroingresado);
+float Sumar (float, float);//PROTOTIPO DE FUNCION
+float Restar (float, float);
+float Multiplicar (float, float);
+float Dividir (float, float);
+//GENERICAS
+int GetInt (char mensaje [], int reintentos,int min, int max, char mensajeError[], int *pnumeroIngresado);
+int GetFloat(char mensaje[], int reintentos, int minimo, int maximo, char mensajeError[], float *pNumeroingresado);
 int CalcularPorcentaje(float precio,float porcentaje, float *pPrecioFinal);
-int getFloatSinMax(char mensaje[], int reintentos, int min, char mensajeError[], float *pNumeroingresado);
-int CalcularCostos(int kilometros, float valorBitcoin, float precioAerolineas,float precioLatam, float *precioAerolineasdDebito,float *precioLatamDebito,float *precioAerolineasdCredito, float *precioLatamCredito,float *precioAerolineasBitcoin,float *precioLatamBitcoin,float *precioPorKmAerolineas,float *precioPorKmLatam,float *diferenciaPrecios, int *bandera);
+int GetFloatSinMax(char mensaje[], int reintentos, int min, char mensajeError[], float *pNumeroingresado);
 void Imprimir(char mensaje[]);
+//ESPECIFICAS DEL TP1
+int CalcularCostos(int kilometros, float valorBitcoin, float precioAerolineas,float precioLatam, float *precioAerolineasdDebito,float *precioLatamDebito,float *precioAerolineasdCredito, float *precioLatamCredito,float *precioAerolineasBitcoin,float *precioLatamBitcoin,float *precioPorKmAerolineas,float *precioPorKmLatam,float *diferenciaPrecios, int *bandera);
 void InformarResultados(int kilometros, float precioAerolineas,float precioLatam, float precioAerolineasdDebito,float precioLatamDebito,float precioAerolineasdCredito, float precioLatamCredito,float precioAerolineasBitcoin,float precioLatamBitcoin,float precioPorKmAerolineas,float precioPorKmLatam,float diferenciaPrecios, int flag);
 
 

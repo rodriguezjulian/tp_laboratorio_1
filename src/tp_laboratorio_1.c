@@ -33,7 +33,7 @@ int main(void)
 	float diferenciaPrecios;
 	float valorBitcoin;
 	int flag;
-	int calcularCostosAuxiliar;
+	int calcularCostosAuxiliar;//PARA AVISAR SI SALIO BIEN O MAL, ES DECIR SI SE CALCULO O NO
 
 	//-----------------------------------------------------------------------
 
@@ -52,7 +52,7 @@ int main(void)
 
 			respuesta=0;//POR SI OPERO UNA OPCION ANTES DE SALIR, QUE NO VUELVA A ITERAR AL ELEGIR LA OPCION 6
 
-			getInt("MARQUE 1, para ingresar kilometros \n"
+			GetInt("MARQUE 1, para ingresar kilometros \n"
 						"MARQUE 2, para ingresar precio de los vuelos \n"
 						"MARQUE 3, para calcular los costos con los distintos medios de pago\n"
 						"MARQUE 4 para informar resultados\n"
@@ -64,12 +64,12 @@ int main(void)
 			{
 			 case 1:
 
-				 	getInt("Ingrese kilometros a recorrer \n",3,1,15000,"ERROR, Ingrese un numero valido\n", &kilometros);
+				 	GetInt("Ingrese kilometros a recorrer \n",3,1,15000,"ERROR, Ingrese un numero valido\n", &kilometros);
 				 	flag=0;//SI EL USUARIO QUISIESE REINGRESAR
 			 break;
 			 case 2:
-				 getFloatSinMax("Ingrese precio del vuelo vijando con Aerolineas \n",3,1,"ERROR, Ingrese un precio valido\n",&precioAerolineas);
-				 getFloatSinMax("Ingrese precio del vuelo vijando con LATAM \n",3,1,"ERROR, Ingrese un precio valido\n",&precioLatam);
+				 GetFloatSinMax("Ingrese precio del vuelo vijando con Aerolineas \n",3,1,"ERROR, Ingrese un precio valido\n",&precioAerolineas);
+				 GetFloatSinMax("Ingrese precio del vuelo vijando con LATAM \n",3,1,"ERROR, Ingrese un precio valido\n",&precioLatam);
 				 flag=0;
 			 break;
 			 case 3:
@@ -89,7 +89,6 @@ int main(void)
 
 			 break;
 			 case 5:
-
 				 kilometros=7090;
 				 precioAerolineas=162965;
 				 precioLatam=159339;

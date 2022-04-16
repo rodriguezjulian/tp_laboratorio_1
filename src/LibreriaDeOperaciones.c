@@ -13,21 +13,21 @@
 #include "LibreriaDeOperaciones.h"
 
 
-float sumar (float  num1, float num2)
+float Sumar (float  num1, float num2)
 	{
 		float rtn;
 		rtn= num1 + num2;
 
 		return rtn;
 	}
-float restar (float  num1, float num2)
+float Restar (float  num1, float num2)
 	{
 		float rtn;
 		rtn= num1 - num2;
 
 		return rtn;
 	}
-float multiplicar (float  num1, float num2)
+float Multiplicar (float  num1, float num2)
 	{
 		float rtn;
 		rtn= num1 * num2;
@@ -35,7 +35,7 @@ float multiplicar (float  num1, float num2)
 		return rtn;
 	}
 // NO SE PUEDE DIVIDIR POR CERO, EN ESE CASO RETORNAR CERO.
-float dividir (float  num1, float num2)
+float Dividir (float  num1, float num2)
 	{
 		float rtn;
 		if(num2!=0)
@@ -49,14 +49,7 @@ float dividir (float  num1, float num2)
 
 		return rtn;
 	}
-int deseaContinuar (int num1)
-	{
-		int rtn;
-		printf("%d");
-		scanf("%d",&rtn);
 
-		return rtn;
-	}
 float SumaryPromediar  (float num1, float num2, float promedio)
 {
 		int rtn;
@@ -64,7 +57,7 @@ float SumaryPromediar  (float num1, float num2, float promedio)
 		printf("%f");
 		return rtn;
 }
-int getInt(char mensaje[], int reintentos, int minimo, int maximo, char mensajeError[], int *pNumeroingresado)
+int GetInt(char mensaje[], int reintentos, int minimo, int maximo, char mensajeError[], int *pNumeroingresado)
 {
 	int rtn = 0;
 	int auxiliarInt; //buffer
@@ -97,7 +90,7 @@ int getInt(char mensaje[], int reintentos, int minimo, int maximo, char mensajeE
 }
 
 
-int getFloat(char mensaje[], int reintentos, int minimo, int maximo, char mensajeError[], float *pNumeroingresado)
+int GetFloat(char mensaje[], int reintentos, int minimo, int maximo, char mensajeError[], float *pNumeroingresado)
 {
 	int rtn = 0;
 	float auxiliarFloat; //buffer
@@ -126,7 +119,7 @@ int getFloat(char mensaje[], int reintentos, int minimo, int maximo, char mensaj
 	}
 	return rtn;
 }
-int getFloatSinMax(char mensaje[], int reintentos, int min, char mensajeError[], float *pNumeroingresado)
+int GetFloatSinMax(char mensaje[], int reintentos, int min, char mensajeError[], float *pNumeroingresado)
 {
 	int rtn = 0;
 	float auxiliarFloat; //buffer
@@ -189,8 +182,8 @@ int CalcularCostos(int kilometros, float valorBitcoin, float precioAerolineas,fl
 		CalcularPorcentaje(precioAerolineas,25,precioAerolineasdCredito);
 		CalcularPorcentaje(precioLatam,25,precioLatamCredito);
 
-		*precioAerolineasBitcoin=dividir(precioAerolineas,valorBitcoin);
-		*precioLatamBitcoin=dividir(precioLatam,valorBitcoin);
+		*precioAerolineasBitcoin=Dividir(precioAerolineas,valorBitcoin);
+		*precioLatamBitcoin=Dividir(precioLatam,valorBitcoin);
 
 		*precioPorKmAerolineas=precioAerolineas/ kilometros;
 		*precioPorKmLatam=precioLatam/ kilometros;
@@ -214,8 +207,21 @@ void InformarResultados(int kilometros, float precioAerolineas,float precioLatam
 	{
 		if(flag==1)
 		{
-			printf("KMs Ingresados: %d km \n", kilometros);
+			printf("KMs Ingresados: %d km \n\n", kilometros);
 
+			printf("Precio Aerolineas: $%.2f \n", precioAerolineas);
+			printf("a)Precio con tarjeta de debito: $ %.2f \n",precioAerolineasdDebito);
+			printf("b)Precio con tarjeta de credito: $ %.2f \n",precioAerolineasdCredito);
+			printf("c)Precio pagando con bitcoin: %.2f BTC\n",precioAerolineasBitcoin);
+			printf("d)Mostrar precio unitario: $ %.2f \n\n",precioPorKmAerolineas );
+
+			printf("Precio Aerolineas: $%.2f \n", precioLatam);
+			printf("a)Precio con tarjeta de debito: $ %.2f \n",precioLatamDebito);
+			printf("b)Precio con tarjeta de credito: $ %.2f \n",precioLatamCredito);
+			printf("c)Precio pagando con bitcoin: %.2f BTC\n",precioLatamBitcoin);
+			printf("d)Mostrar precio unitario: $ %.2f \n\n",precioPorKmLatam );
+
+			printf("La diferencia de precio es: %.2f \n",diferenciaPrecios);
 
 		}
 		else
@@ -242,16 +248,6 @@ void Imprimir(char mensaje[])
 
 
 
-/*char mostrarFloat(char mensaje[],float num1)
-	{
-		return printf("%.2f", num1);
-
-	}*/
-//DECLARAR FUNCION
-/*void imprimir(char mensaje [], float num1)
-	{
-		printf("%s",num1);
-	}*/
 
 
 
