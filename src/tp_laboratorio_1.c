@@ -12,11 +12,12 @@
 #include <stdlib.h>
 #include "LibreriaDeOperaciones.h"
 
+
 int main(void)
 {
 	setbuf(stdout,NULL);
 	int opcion;
-	int respuesta=1;
+	int respuesta;
 	int kilometros;
 	//int retornoOpciones;
 	float precioAerolineas;
@@ -25,11 +26,32 @@ int main(void)
 	float precioLatamDebito;
 	float precioAerolineasdCredito;
 	float precioLatamCredito;
+	float precioAerolineasBitcoin;
+	float precioLatamBitcoin;
+	float precioPorKmAerolineas;
+	float precioPorKmLatam;
+	float diferenciaPrecios;
+	float valorBitcoin;
+	int flag;
+	int calcularCostosAuxiliar;
+
+	//-----------------------------------------------------------------------
+
+	valorBitcoin= 4606954.55;
+	//DEFINO VALORES PARA LUEGO VALIDAR LA ENTRADA A LA OPCION 3
+	kilometros=0;
+	precioAerolineas=0;
+	precioLatam=0;
+	flag=0;
+	//------------------------------------------------------------------------
+
+
 	//float precioAerolineasDebito;
 
 		do{
-				printf("aca 1");
-				//retornoOpciones=
+
+			respuesta=0;//POR SI OPERO UNA OPCION ANTES DE SALIR, QUE NO VUELVA A ITERAR AL ELEGIR LA OPCION 6
+
 			getInt("MARQUE 1, para ingresar kilometros \n"
 						"MARQUE 2, para ingresar precio de los vuelos \n"
 						"MARQUE 3, para calcular los costos con los distintos medios de pago\n"
@@ -38,51 +60,56 @@ int main(void)
 						"MARQUE 6, para salir \n"
 						,3,1,6,"ERROR, ingrese un numero valido \n", &opcion);
 
-				printf("\n\t\t\t Opcion ingresada: %d\n",opcion);
-
-				/*if(retornoOpciones==0){printf("\t\t\tSALIO MAL: %d\n",retornoOpciones);}
-				else{printf("SALIO TODO BIEN");}*/
-			//printf("aca2");
-
 			switch(opcion)
 			{
 			 case 1:
-		// int getInt(char mensaje[], int reintentos, int minimo, int maximo, char mensajeError[], int *pNumeroingresado)
+
 				 	getInt("Ingrese kilometros a recorrer \n",3,1,15000,"ERROR, Ingrese un numero valido\n", &kilometros);
+				 	flag=0;//SI EL USUARIO QUISIESE REINGRESAR
 			 break;
 			 case 2:
-		//			 int getFloatSinMax(char mensaje[], int reintentos, int minimo, char mensajeError[], float *pNumeroingresado)
 				 getFloatSinMax("Ingrese precio del vuelo vijando con Aerolineas \n",3,1,"ERROR, Ingrese un precio valido\n",&precioAerolineas);
 				 getFloatSinMax("Ingrese precio del vuelo vijando con LATAM \n",3,1,"ERROR, Ingrese un precio valido\n",&precioLatam);
+				 flag=0;
 			 break;
 			 case 3:
-				// float CalcularPorcentajes(float precio,float porcentaje,int cien, float *pPrecioFinal, int reintentos);
-				CalcularPorcentajes(precioAerolineas,-10,100,&precioAerolineasdDebito,3);
-				CalcularPorcentajes(precioLatam,-10,100,&precioLatamDebito,3);
-				CalcularPorcentajes(precioAerolineas,25,100,&precioAerolineasdCredito,3);
-				CalcularPorcentajes(precioLatam,25,100,&precioLatamCredito,3);
-
-				printf("precioLatamCredito %.2f\n", precioLatamCredito);
-				printf("precioAerolineasdCredito %.2f\n", precioAerolineasdCredito);
-				printf("precioLatamDebito %.2f\n", precioLatamDebito);
-				printf("precioAerolineasdDebito %.2f\n", precioAerolineasdDebito);
+				 // PARA REDUCIR EL CODIGO DEL MAIN, ME AYUDE DE LA FUNCION CalcularPorcentaje.
+				 calcularCostosAuxiliar= CalcularCostos(kilometros,valorBitcoin, precioAerolineas, precioLatam, &precioAerolineasdDebito,&precioLatamDebito, &precioAerolineasdCredito, &precioLatamCredito,&precioAerolineasBitcoin,&precioLatamBitcoin,&precioPorKmAerolineas, &precioPorKmLatam, &diferenciaPrecios, &flag);
+				 if(calcularCostosAuxiliar==1)
+				 {
+					 	Imprimir("Costos calculados correctamente \n");
+				 }
+				 else
+				 {
+					 Imprimir("Error, operar opcion 1 y 2 previamente \n");
+				 }
 			 break;
 			 case 4:
-				 //FUNCION PARA MOSTRAR INFORMACION
+				  InformarResultados(kilometros,  precioAerolineas, precioLatam, precioAerolineasdDebito, precioLatamDebito, precioAerolineasdCredito,  precioLatamCredito, precioAerolineasBitcoin, precioLatamBitcoin, precioPorKmAerolineas, precioPorKmLatam, diferenciaPrecios, flag);
+
 			 break;
 			 case 5:
-			 break;
-			 case 6:
+
+				 kilometros=7090;
+				 precioAerolineas=162965;
+				 precioLatam=159339;
+				 CalcularCostos(kilometros,valorBitcoin, precioAerolineas, precioLatam, &precioAerolineasdDebito,&precioLatamDebito, &precioAerolineasdCredito, &precioLatamCredito,&precioAerolineasBitcoin,&precioLatamBitcoin,&precioPorKmAerolineas, &precioPorKmLatam, &diferenciaPrecios, &flag);
+				 InformarResultados(kilometros,  precioAerolineas, precioLatam, precioAerolineasdDebito, precioLatamDebito, precioAerolineasdCredito,  precioLatamCredito, precioAerolineasBitcoin, precioLatamBitcoin, precioPorKmAerolineas, precioPorKmLatam, diferenciaPrecios, flag);
+				 flag=0;
 			 break;
 			}
+			if(opcion!=6)
+				{
 
-			printf("Para continuar operando presione el numero 8 \n ");
-			scanf("%d",&respuesta);
+					Imprimir("Para continuar operando presione el numero 8 \n ");
+					scanf("%d",&respuesta);
+				}
+
 
 		}while(respuesta==8);
 
-	//printf("Ingrese kilometros");
-	//scanf("%d", &kilometros);
+		Imprimir("Fin del programa");
+
 	return EXIT_SUCCESS;
 }
 

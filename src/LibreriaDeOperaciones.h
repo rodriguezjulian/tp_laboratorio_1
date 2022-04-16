@@ -24,10 +24,11 @@ float dividir (float, float);
 int deseaContinuar (int);
 int getInt (char mensaje [], int reintentos,int min, int max, char mensajeError[], int *pnumeroIngresado);
 int getFloat(char mensaje[], int reintentos, int minimo, int maximo, char mensajeError[], float *pNumeroingresado);
-float CalcularPorcentajes(float precio,float porcentaje,int cien, float *pPrecioFinal, int reintentos);
+int CalcularPorcentaje(float precio,float porcentaje, float *pPrecioFinal);
 int getFloatSinMax(char mensaje[], int reintentos, int min, char mensajeError[], float *pNumeroingresado);
-char mostrarFloat(char mensaje[],float num1);
-void imprimir(char mensaje [], float num1);
+int CalcularCostos(int kilometros, float valorBitcoin, float precioAerolineas,float precioLatam, float *precioAerolineasdDebito,float *precioLatamDebito,float *precioAerolineasdCredito, float *precioLatamCredito,float *precioAerolineasBitcoin,float *precioLatamBitcoin,float *precioPorKmAerolineas,float *precioPorKmLatam,float *diferenciaPrecios, int *bandera);
+void Imprimir(char mensaje[]);
+void InformarResultados(int kilometros, float precioAerolineas,float precioLatam, float precioAerolineasdDebito,float precioLatamDebito,float precioAerolineasdCredito, float precioLatamCredito,float precioAerolineasBitcoin,float precioLatamBitcoin,float precioPorKmAerolineas,float precioPorKmLatam,float diferenciaPrecios, int flag);
 
 
 #endif /* LIBRERIADEOPERACIONES_H_ */

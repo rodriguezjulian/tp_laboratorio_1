@@ -38,7 +38,7 @@ float multiplicar (float  num1, float num2)
 float dividir (float  num1, float num2)
 	{
 		float rtn;
-		if(rtn!=0)
+		if(num2!=0)
 		{
 			rtn= num1 / num2;
 		}
@@ -158,37 +158,100 @@ int getFloatSinMax(char mensaje[], int reintentos, int min, char mensajeError[],
 
 
 
-float CalcularPorcentajes(float precio,float porcentaje,int cien, float *pPrecioFinal, int reintentos)
+int CalcularPorcentaje(float precio,float porcentaje, float *pPrecioFinal)
 	{
 	float precioAuxiliar;
 	//float precioMas;
 	int retorno;
 	retorno=-1;
-		do
-		{
-			reintentos--;
 
-			if(precio>0 && cien==100 && reintentos>0)
+			if(precio>0)
 			{
-				precioAuxiliar=(porcentaje*precio/cien)+precio;
+				precioAuxiliar=(porcentaje*precio/100)+precio;
 				retorno=0;
 			}
-
-		}while(reintentos>0);
 
 		*pPrecioFinal=precioAuxiliar;
 		return retorno;
 	}
+
+
+int CalcularCostos(int kilometros, float valorBitcoin, float precioAerolineas,float precioLatam, float *precioAerolineasdDebito,float *precioLatamDebito,float *precioAerolineasdCredito, float *precioLatamCredito,float *precioAerolineasBitcoin,float *precioLatamBitcoin,float *precioPorKmAerolineas,float *precioPorKmLatam,float *diferenciaPrecios, int *bandera)
+	{
+		int rtn;
+		rtn=0;
+
+		if(kilometros!=0 && valorBitcoin!=0 && precioAerolineas!=0 && precioLatam!=0)
+		{
+		CalcularPorcentaje(precioAerolineas,-10,precioAerolineasdDebito);
+		CalcularPorcentaje(precioLatam,-10,precioLatamDebito);
+
+		CalcularPorcentaje(precioAerolineas,25,precioAerolineasdCredito);
+		CalcularPorcentaje(precioLatam,25,precioLatamCredito);
+
+		*precioAerolineasBitcoin=dividir(precioAerolineas,valorBitcoin);
+		*precioLatamBitcoin=dividir(precioLatam,valorBitcoin);
+
+		*precioPorKmAerolineas=precioAerolineas/ kilometros;
+		*precioPorKmLatam=precioLatam/ kilometros;
+
+		*diferenciaPrecios=precioAerolineas-precioLatam;
+
+		//printf("Costos calculados correctamente \n");
+		*bandera=1;
+		rtn=1;
+		}
+		else
+		{
+			//printf("ERROR, operar opcion 1 y 2 previamente \n");
+			*bandera=0;
+			rtn=0;
+		}
+		return rtn;
+	}
+
+void InformarResultados(int kilometros, float precioAerolineas,float precioLatam, float precioAerolineasdDebito,float precioLatamDebito,float precioAerolineasdCredito, float precioLatamCredito,float precioAerolineasBitcoin,float precioLatamBitcoin,float precioPorKmAerolineas,float precioPorKmLatam,float diferenciaPrecios, int flag)
+	{
+		if(flag==1)
+		{
+			printf("KMs Ingresados: %d km \n", kilometros);
+
+
+		}
+		else
+		{
+			Imprimir("ERROR, operar opcion 3 previamente \n");
+		}
+	}
+
+
+void Imprimir(char mensaje[])
+	{
+		printf("%s", mensaje);
+	}
+
+
+
+
+
+
+
+
+
+
+
+
+
 /*char mostrarFloat(char mensaje[],float num1)
 	{
 		return printf("%.2f", num1);
 
 	}*/
 //DECLARAR FUNCION
-void imprimir(char mensaje [], float num1)
+/*void imprimir(char mensaje [], float num1)
 	{
 		printf("%s",num1);
-	}
+	}*/
 
 
 
